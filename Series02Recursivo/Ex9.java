@@ -18,19 +18,12 @@ public class Ex9 {
         }
 
         if (file.isDirectory()) {
-            findFiles(file.listFiles(), filename, 0);
+            for (File eachFile : file.listFiles()) {
+                findFiles(eachFile, filename);
+            }
         } else if (file.getName().equals(filename)) {
             System.out.println(file);
         }
     }
 
-    public static void findFiles(File[] files, String filename, int index) {
-
-        if (files == null || index >= files.length) {
-            return;
-        }
-
-        findFiles(files[index], filename);
-        findFiles(files, filename, index + 1);
-    }
 }
