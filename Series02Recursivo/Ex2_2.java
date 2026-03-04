@@ -1,4 +1,9 @@
-public class Ex22 {
+public class Ex2_2 {
+
+    /**
+     * 
+     * @param i must be initialized by 0
+     */
 
     public static void main(String[] args) {
         char[] v = { '1', '3', '5', '3', '1' };
@@ -7,7 +12,7 @@ public class Ex22 {
     }
 
     public static double converter(char[] v, int i) {
-        if (i == v.length - 1) {
+        if (i >= v.length - 1) {
             return v[i] - '0';
         }
 

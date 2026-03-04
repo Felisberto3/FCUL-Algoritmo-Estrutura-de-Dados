@@ -5,6 +5,11 @@ public class Ex2 {
     // número inteiro 13531. Assuma que a sequência é não vazia e que contém apenas
     // algarismos. Implemente o seu algoritmo em Java
 
+    /**
+     * 
+     * @param i must be initialized by 0
+     */
+
     public static void main(String[] args) {
         // System.out.println(Math.pow(10, 2));
         char[] v = { '1', '3' };
