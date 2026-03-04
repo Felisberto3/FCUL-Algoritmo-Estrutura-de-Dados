@@ -1,4 +1,10 @@
 public class Ex4 {
+    // 4. Escreva um método recursivo que recebe uma cadeia de caracteres
+    // (uma String) e produz o seu inverso. Por exemplo, o inverso de
+    // "recursiva" é "avisrucer". Sugestão: comece por escrever uma função
+    // StringBuilder inversa(String s, int indice) que, dada uma String e
+    // um índice na String, produz um StringBuilder com os caracteres na string a
+    // partir do indice e apresentados por ordem inversa.
     public static void main(String[] args) {
         System.out.println(inversa("recursiva", 12));
     }
