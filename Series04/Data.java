@@ -34,12 +34,14 @@ public class Data {
 
     private boolean isValidData(int dia, int mes, int ano) {
         switch (mes) {
-            case 1, 2, 3, 5, 7, 8, 10, 12:
+            case 1, 3, 5, 7, 8, 10, 12:
                 return dia >= 1 && dia <= 31;
             case 4, 6, 9, 11:
                 return dia >= 1 && dia <= 30;
-            default:
+            case 2:
                 return dia >= 1 && dia <= (isBisexto(ano) ? 29 : 28);
+            default:
+                return false;
         }
     }
 
