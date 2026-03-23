@@ -17,11 +17,11 @@ public class Ex11 {
 
     public static void alineaB(int n) {
         int m = 0; // 1
-        for (int i = 1; i < 10 * n; i++) // 10*n
-            for (int j = 1; j < n; j++) // n => por estar aninhado = 10*n*n
-                m++; // 2*n => por estar aninhado = 2*n*10*n
+        for (int i = 1; i < 10 * n; i++) // 10n
+            for (int j = 1; j < n; j++) // n => por estar aninhado = 10n*n
+                m++; // 2n => por estar aninhado = 2n*10n
 
-        // soma = (1 + 10n + 10n^2 + 20n^2) = > o O(n^2)
+        // soma = (1 + 10n + 10n^2 + 20n^2) => o O(n^2)
     }
 
     public static void alineaC(int n) {
@@ -64,11 +64,10 @@ public class Ex11 {
     }
 
     public static void alineaE(int n) {
-        int soma = n * n; // 1, obs.: Este número é par, se diminuirem 1 apenas será impar e não vai
-                          // entrar no while.
-        while (soma % 2 == 0) // Apenas 1 vez porque será diminuido 1 unidade.
-            soma--;
-
+        int soma = n * n; // 1, obs.: Se o número é impar, nunca vai entrar no while, se for par so entra
+                          // uma vez.
+        while (soma % 2 == 0) // Se for par, so entra 1 vez.
+            soma--; // 1
         // soma => (1 + (2 + 2) + 1) => O(1)
     }
 
