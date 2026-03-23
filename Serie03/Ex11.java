@@ -62,4 +62,22 @@ public class Ex11 {
         // somando =(1 + 3logn + 1 + 6logn + 2) => O(logn)
 
     }
+
+    public static void alineaE(int n) {
+        int soma = n * n; // 1, obs.: Este número é par, se diminuirem 1 apenas será impar e não vai
+                          // entrar no while.
+        while (soma % 2 == 0) // Apenas 1 vez porque será diminuido 1 unidade.
+            soma--;
+
+        // soma => (1 + (2 + 2) + 1) => O(1)
+    }
+
+    public static void alineaF(int n, int[][] a, int[][] b, int[][] c) {
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++) {
+                a[i][j] = 0;
+                for (int k = 0; k < n; k++)
+                    a[i][j] += b[i][k] * c[k][j];
+            }
+    }
 }
