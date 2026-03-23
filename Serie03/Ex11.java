@@ -73,11 +73,21 @@ public class Ex11 {
     }
 
     public static void alineaF(int n, int[][] a, int[][] b, int[][] c) {
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++) {
-                a[i][j] = 0;
-                for (int k = 0; k < n; k++)
+        for (int i = 0; i < n; i++) // n + 1
+            for (int j = 0; j < n; j++) { // n+ 1 => sabendo que está aninhado => (n + 1)(n + 1)
+                a[i][j] = 0; // 1 => como está aninhado, então vamos multiplicar com os polinómios das
+                             // alíneas anteriores => (n + 1) (n+ 1)
+                for (int k = 0; k < n; k++) // n+ 1 => sabendo que está aninhado => (n + 1)(n + 1)(n+ 1)
                     a[i][j] += b[i][k] * c[k][j];
             }
+
+        // somando os polinómios entao o monómio de maior grau é n^ 3
+    }
+
+    public static void alineaG(int n) {
+        int c = 0;
+        for (int i = 0; i < n; i++)
+            for (int j = i; j < n; j++)
+                c++;
     }
 }
