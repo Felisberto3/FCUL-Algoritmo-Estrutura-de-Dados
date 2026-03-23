@@ -48,4 +48,18 @@ public class Ex11 {
         // de:
         // O(n^2)
     }
+
+    public static void alineaD(int n) {
+        int x = n * n * n; // 1
+        while (x > 1) // 3logn + 1
+            x /= 2; // 2 => 2*(3logn + 1)
+        // achei 3logx + 1 com PG.
+        // sabendo que a operacao e de x, x/2, x/4,x/8.. ate 1.
+        // PG = a1*q^(k -1), sabendo que q = 1/2. então:
+        // PG = n^3.(1/2)^(k-1) => n^3.(1/2)^(k-1) > 1, calculando :
+        // ((n^3) / 2^(k -1) ) > 1 => n^3 > 2^(k-1) => k < 3(logn / log2) + 1
+
+        // somando =(1 + 3logn + 1 + 6logn + 2) => O(logn)
+
+    }
 }
