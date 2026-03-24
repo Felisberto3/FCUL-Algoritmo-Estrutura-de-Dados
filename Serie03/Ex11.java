@@ -84,9 +84,24 @@ public class Ex11 {
     }
 
     public static void alineaG(int n) {
-        int c = 0;
-        for (int i = 0; i < n; i++)
+        int c = 0; // 1
+        for (int i = 0; i < n; i++) // este caso vamos analizar em conjunto com o laco a baixo.
             for (int j = i; j < n; j++)
                 c++;
+
+        // -- i | j
+        // -- 0 | n
+        // -- 1 | n - 1
+        // -- 2 | n - 2
+        // -- 3 | n - 3
+        // -- . | .
+        // -- . | .
+        // -- . | .
+        // n - 1| 1
+        // somando a segunda coluna com PA.:
+        // sk = k(a1 + ak ) / 2, essa e a formula universal de PA.
+
+        // s = n(n + 1) /2 entao a complexidade é de n^2.
+        // O (n^2)
     }
 }
