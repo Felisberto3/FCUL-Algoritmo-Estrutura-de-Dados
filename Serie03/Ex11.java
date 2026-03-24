@@ -125,7 +125,11 @@ public class Ex11 {
         // S = n . ( 1 - r^n) / (1 - r) <=> soma de elementos finitos numa PG.
         // sabendo que o r = 1/2 então:
         // S = n (1 - (1/2) ^ k) / (1 - (1/2)) => 2n - 2n(1/2)^k, portanto:
-        // S = 2n - 2n(1/2)^k. A complexidade é de:
+        // S = 2n - 2n(1/2)^k 
+        // O k é calculado com a fórmula da geral da PG: 
+        // PG = a1.q^(k - 1) onde 1 <= n.(1/2)^(k - 1), portanto K = logn/ log2 + 1.
+        // S = 2n - 2n(1/2)^k => S = 2n - 2n(1/2)^(logn/ log 2 + 1) , portanto: S = 2n + 1
+        // A complexidade é de:
         // O(n)
 
     }
