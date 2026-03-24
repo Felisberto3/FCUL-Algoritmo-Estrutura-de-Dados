@@ -104,4 +104,29 @@ public class Ex11 {
         // s = n(n + 1) /2 entao a complexidade é de n^2.
         // O (n^2)
     }
+
+    public static void alineaH(int n) {
+        int c = 0;
+        for (int i = n; i > 0; i /= 2)
+            for (int j = 0; j < i; j++)
+                c++;
+
+        // ---- i | j
+        // ---- n | n
+        // -- n/2 | n/2
+        // -- n/4 | n/4
+        // -- n/8 | n/8
+        // -----. | .
+        // ---- . | .
+        // ---- . | .
+        // -----1 | 1
+        //
+        // devemos saber a soma de todos os elementos em J:
+        // S = n . ( 1 - r^n) / (1 - r) <=> soma de elementos finitos numa PG.
+        // sabendo que o r = 1/2 então:
+        // S = n (1 - (1/2) ^ k) / (1 - (1/2)) => 2n - 2n(1/2)^k, portanto:
+        // S = 2n - 2n(1/2)^k. A complexidade é de:
+        // O(n)
+
+    }
 }
