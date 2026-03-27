@@ -11,6 +11,9 @@ public class MaxInList {
 
         // replicar item.
         System.out.println(replicate(4, 2));
+
+        // esta na lista
+        System.out.println(isInList(2, list, 0));
     }
 
     /**
@@ -45,5 +48,12 @@ public class MaxInList {
 
         return replicate(quant - 1, item).append(",").append(item);
 
+    }
+
+    public static boolean isInList(int a, int[] v, int i) {
+        if (i >= v.length)
+            return false;
+
+        return (v[i] == a) ? true : isInList(a, v, i + 1);
     }
 }
