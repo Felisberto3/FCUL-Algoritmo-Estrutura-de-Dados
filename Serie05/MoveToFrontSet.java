@@ -12,8 +12,7 @@ public class MoveToFrontSet<E> implements Conjunto<E> {
     @Override
     public void add(E item) {
 
-        if (contains(item))
-            return;
+        remove(item);
 
         Node current = new Node();
         current.item = item;
@@ -24,12 +23,35 @@ public class MoveToFrontSet<E> implements Conjunto<E> {
 
     }
 
+    public void remove(E item) {
+        if (first == null) {
+            return;
+        }
+        if (first.item.equals(item)) {
+            first = first.next;
+            size--;
+            return;
+        }
+
+        Node current = first;
+
+        while (current.next != null) {
+
+            if (current.next.equals(item)) {
+                current.next = current.next.next;
+                size--;
+            }
+
+            current = current.next;
+        }
+    }
+
     @Override
     public boolean contains(E item) {
         Node current = first;
 
         while (current != null) {
-            if (current.item == item) {
+            if (current.item.equals(item)) {
                 return true;
             }
             current = current.next;
@@ -65,11 +87,13 @@ public class MoveToFrontSet<E> implements Conjunto<E> {
 
     public static void main(String[] args) {
         MoveToFrontSet<Integer> z = new MoveToFrontSet<>();
+        // z.add(1);
         System.out.println(z.size());
-        z.add(1);
-        z.add(2);
+        // z.add(2);
         z.add(3);
-        z.add(2);
+        z.remove(3);
+        // z.remove(3);
+        // z.remove(1);
         System.out.println(z.size());
         System.out.println(z);
     }
