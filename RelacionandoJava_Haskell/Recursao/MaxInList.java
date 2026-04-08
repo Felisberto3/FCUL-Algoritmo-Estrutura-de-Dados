@@ -6,7 +6,7 @@ package RelacionandoJava_Haskell.Recursao;
 public class MaxInList {
 
     public static void main(String[] args) {
-        int[] list = { 1, 1, -2 };
+        int[] list = { 12, 9, 11, 7 };
         System.out.println(maximum(list, 0));
 
         // replicar item.
@@ -14,6 +14,18 @@ public class MaxInList {
 
         // esta na lista
         System.out.println(isInList(2, list, 0));
+    }
+
+    public static int max(int[] v, int p) {
+        if (p >= v.length - 1) {
+            return v[p];
+        }
+
+        if (v[p] >= max(v, p + 1)) {
+            return v[p];
+        } else {
+            return maximum(v, p + 1);
+        }
     }
 
     /**

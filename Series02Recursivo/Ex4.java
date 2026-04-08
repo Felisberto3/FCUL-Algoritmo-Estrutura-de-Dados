@@ -15,4 +15,5 @@ public class Ex4 {
         }
         return inversa(s, indice + 1).append(s.charAt(indice));
     }
+
 }
