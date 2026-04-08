@@ -1,6 +1,5 @@
 package Serie05;
 
-
 public class LinkedList<E> implements Stack<E> {
     private class Node {
         E item;
@@ -10,30 +9,25 @@ public class LinkedList<E> implements Stack<E> {
     private Node first;
     private int size;
 
-
     @Override
     public E peek() {
-       return  first.item;
+        return first.item;
     }
 
     @Override
-    public E pop() {
-        Node oldFirst = first;
+    public void pop() {
         first = first.next;
-        return oldFirst.item;
+        size--;
     }
 
     @Override
     public void push(E item) {
-        Node current  = new Node();
+        Node current = new Node();
         current.item = item;
-
-        if (first != null) {
-            current.next = first;
-        }
+        current.next = first;
         first = current;
         size++;
-        
+
     }
 
     @Override
@@ -41,30 +35,35 @@ public class LinkedList<E> implements Stack<E> {
         return size;
     }
 
-    // ex2
     @Override
     public String toString() {
-       Node current = first;
+        Node current = first;
 
-       StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder("[");
 
-       while (current != null) {
-         sb.append(current.item);
-         current = current.next;
-       }
+        while (current != null) {
+            sb.append(current.item);
+            current = current.next;
 
-       return sb.toString();
+            if (current != null) {
+                sb.append(",");
+            }
+
+        }
+        sb.append("]");
+
+        return sb.toString();
     }
 
     public static void main(String[] args) {
         LinkedList<Integer> pilha = new LinkedList<>();
+
         pilha.push(1);
         pilha.push(2);
-        pilha.push(3);
-        pilha.push(1);
+        // pilha.push(3);
+        // pilha.push(1);
 
         System.out.println(pilha);
     }
-
 
 }
