@@ -1,4 +1,4 @@
-package Series04;
+package Serie04;
 
 /**
  * Pré Condição:

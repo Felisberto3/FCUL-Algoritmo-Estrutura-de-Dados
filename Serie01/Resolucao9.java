@@ -1,4 +1,4 @@
-package Series01;
+package Serie01;
 
 // 9. Considere o problema de descobrir, numa dada sequência, o número de elementos iguais a um dado número que chamamos chave.
 // (a) Escreva um método rank(chave, a) que recebe uma chave uma sequência ordenada de números inteiros como argumentos e devolve o número de

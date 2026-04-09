@@ -1,4 +1,4 @@
-package Series04;
+package Serie04;
 
 /**
  * Representa a data utilizando um único inteiro.
