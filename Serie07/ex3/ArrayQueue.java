@@ -92,6 +92,10 @@ public class ArrayQueue<E> implements Queue<E> {
         };
     }
 
+    public static class Node<E> {
+        E item;
+    }
+
     public static void main(String[] args) {
         Queue<Integer> q = new ArrayQueue<>();
         System.out.println(q.isEmpty());
@@ -107,6 +111,25 @@ public class ArrayQueue<E> implements Queue<E> {
 
         for (Integer integer : r) {
             System.out.print(integer + ",");
+        }
+
+        Queue<Node<String>> u = new ArrayQueue<>();
+        Node<String> ya = new Node<>();
+        ya.item = "String";
+        u.enqueue(ya);
+        Queue<Node<String>> t = new ArrayQueue<>(u);
+
+        for (Node<String> node : t) {
+            System.out.println("item T: " + node.item);
+        }
+
+        for (Node<String> y : u) {
+            System.out.println("Item U: " + y.item);
+            y.item = "FAlou";
+        }
+
+        for (Node<String> y : t) {
+            System.out.println("Item T: " + y.item);
         }
         // System.out.println(q.dequeue());
         // System.out.println(q.dequeue());
