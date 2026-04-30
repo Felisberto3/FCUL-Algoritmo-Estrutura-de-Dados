@@ -1,6 +1,8 @@
 package Serie08.ex1;
 
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class CadeiaCaracteresVector implements CadeiaCaracteres {
     private final char[] cadeia;
@@ -14,35 +16,48 @@ public class CadeiaCaracteresVector implements CadeiaCaracteres {
         this.cadeia[0] = c;
     }
 
+    public CadeiaCaracteresVector(char[] list) {
+        this(list.length);
+        for (int i = 0; i < list.length; i++)
+            this.cadeia[i] = list[i];
+    }
+
     @Override
     public int comprimento() {
-        // TODO Auto-generated method stub
         return this.cadeia.length;
     }
 
     @Override
     public CadeiaCaracteres concat(CadeiaCaracteres outra) {
-        int novoComprimento = this.cadeia.length + outra.comprimento();
-        CadeiaCaracteresVector newCadeiaCaractere = new CadeiaCaracteresVector(novoComprimento);
+        int novoComprimento = this.comprimento() + outra.comprimento();
+        CadeiaCaracteresVector newCadeiaCaracteres = new CadeiaCaracteresVector(novoComprimento);
 
-        for (int i = 0; i < novoComprimento; i++) {
-            for (Character c : this) {
-                newCadeiaCaractere.cadeia[i++] = c;
-            }
-            for (Character c : outra) {
-                newCadeiaCaractere.cadeia[i++] = c;
-            }
+        int i = 0;
+
+        for (Character c : this) {
+            newCadeiaCaracteres.cadeia[i++] = c;
+        }
+        for (Character c : outra) {
+            newCadeiaCaracteres.cadeia[i++] = c;
         }
 
-        return newCadeiaCaractere;
+        return newCadeiaCaracteres;
 
     }
 
     @Override
     public CadeiaCaracteres subcadeia(int primeiro, int ultimo) {
+        int novoComprimento = ultimo - primeiro + 1;
+        if (primeiro < 0 || ultimo >= this.comprimento() || novoComprimento <= 0) {
+            throw new IllegalArgumentException("Comprimento inválido");
+        }
+        CadeiaCaracteresVector novaCadeiaCaracteres = new CadeiaCaracteresVector(novoComprimento);
 
-        return null;
+        for (int i = 0; i < novoComprimento; i++) {
+            novaCadeiaCaracteres.cadeia[i] = this.cadeia[primeiro + i];
+        }
 
+        return novaCadeiaCaracteres;
     }
 
     @Override
@@ -55,9 +70,16 @@ public class CadeiaCaracteresVector implements CadeiaCaracteres {
             }
 
             public Character next() {
-                return cadeia[i];
+                if (!hasNext())
+                    throw new NoSuchElementException();
+
+                return cadeia[i++];
             }
         };
+    }
+
+    public String toString() {
+        return new String(this.cadeia);
     }
 
 }
