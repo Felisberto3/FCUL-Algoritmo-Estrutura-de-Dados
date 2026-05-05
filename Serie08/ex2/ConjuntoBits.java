@@ -49,29 +49,31 @@ public class ConjuntoBits implements ConjuntoBits64 {
         return (this.bits & (1L << pos)) != 0;
     }
 
+    private class ConjuntoIterator implements Iterator<Integer> {
+        private int i = 0;
+
+        public boolean hasNext() {
+            while (i < 64) {
+                if (contem(i))
+                    return true;
+
+                i++;
+            }
+
+            return false;
+        }
+
+        public Integer next() {
+            if (!hasNext())
+                throw new NoSuchElementException("Lista vazia");
+            return i++;
+        }
+
+    }
+
     @Override
     public Iterator<Integer> iterator() {
-        return new Iterator<Integer>() {
-            private int i = 0;
-
-            public boolean hasNext() {
-                while (i < 64) {
-                    if (contem(i))
-                        return true;
-
-                    i++;
-                }
-
-                return false;
-            }
-
-            public Integer next() {
-                if (!hasNext())
-                    throw new NoSuchElementException("Lista vazia");
-                return i++;
-            }
-
-        };
+        return new ConjuntoIterator();
     }
 
 }
