@@ -86,7 +86,7 @@ public class Polinomio implements IPolinomio {
     public IPolinomio vezes(IPolinomio q) {
         int maiorGrau = this.grau() + q.grau();
 
-        double[] values = new double[maiorGrau];
+        double[] values = new double[maiorGrau + 1];
 
         for (int i = 0; i <= this.grau(); i++) {
             for (int j = 0; j <= q.grau(); j++) {
