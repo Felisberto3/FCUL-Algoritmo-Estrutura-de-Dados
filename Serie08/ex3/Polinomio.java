@@ -1,8 +1,6 @@
 
 package Serie08.ex3;
 
-import java.util.Iterator;
-
 public class Polinomio implements IPolinomio {
     private final double[] conjunto;
     private final int grau;
@@ -114,12 +112,6 @@ public class Polinomio implements IPolinomio {
         }
 
         return sb.toString();
-    }
-
-    @Override
-    public Iterator<Double> iterator() {
-        // TODO Auto-generated method stub
-        return null;
     }
 
 }
