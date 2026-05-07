@@ -1,6 +1,6 @@
 package Serie08.ex3;
 
-public interface IPolinomio extends Iterable<Double> {
+public interface IPolinomio {
     /**
      * O grau deste polinómio , ou seja , o maior expoente
      * com um coeficiente diferente de zero . Retorna 0
