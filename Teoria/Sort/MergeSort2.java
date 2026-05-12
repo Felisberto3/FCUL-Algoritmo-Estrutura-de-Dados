@@ -4,7 +4,11 @@ package Teoria.Sort;
  * EStou apresentando um merge Sort Optimizado
  */
 public class MergeSort2 {
+
     public static void main(String[] args) {
+        Integer x = 5;
+        Integer y = -2;
+        System.out.println(x.compareTo(y));
         int[] a = { 2, 5, -1, 11, 0 };
         sort(a);
 
