@@ -12,17 +12,19 @@ public class HeapClass {
 
     public static void sort(int[] a) {
         int n = a.length - 1;
+
+        // Fazendo o heapify
         for (int k = n / 2; k >= 1; k--) {
-            heapify(a, k, n);
+            sink(a, k, n);
         }
 
         while (n > 1) {
             exch(a, 1, n--);
-            heapify(a, 1, n);
+            sink(a, 1, n);
         }
     }
 
-    public static void heapify(int[] a, int k, int n) {
+    public static void sink(int[] a, int k, int n) {
         while (2 * k <= n) {
             int j = 2 * k;
             if (j < n && less(a, j, j + 1))
