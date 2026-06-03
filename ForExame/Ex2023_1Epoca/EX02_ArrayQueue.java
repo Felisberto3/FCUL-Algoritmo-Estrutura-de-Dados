@@ -38,6 +38,11 @@ public class EX02_ArrayQueue<E> implements Queue<E> {
         data = (E[]) new Object[DEFAULT_CAPACITY];
     }
 
+    /**
+     * @deprecated E elemento a ser procurado
+     * @requires E != null
+     * @return true se encontrar o elemento e false caso contrario
+     */
     @Override
     public boolean contains(E e) {
         for (int i = front, count = 0; count < size; i = (i + 1) % data.length, count++)
