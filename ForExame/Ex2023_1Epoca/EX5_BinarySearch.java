@@ -27,7 +27,7 @@ public class EX5_BinarySearch<Key extends Comparable<Key>, Value> implements Ite
     }
 
     public void put(Key key, Value val) {
-        if (size > 0 && keys[size - 1].compareTo(key) > 0) {
+        if (size > 0 && keys[size - 1].compareTo(key) < 0) {
             keys[size] = key;
             vals[size] = val;
             size++;
