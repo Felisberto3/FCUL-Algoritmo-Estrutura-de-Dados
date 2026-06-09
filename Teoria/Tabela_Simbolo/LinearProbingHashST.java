@@ -1,6 +1,8 @@
 package Teoria.Tabela_Simbolo;
 
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Objects;
 
 public class LinearProbingHashST<Key extends Comparable<Key>, Value> implements ST<Key, Value> {
     private int n;
@@ -42,9 +44,9 @@ public class LinearProbingHashST<Key extends Comparable<Key>, Value> implements 
 
     @Override
     public void put(Key key, Value val) {
-        if (n >= m / 2) {
+        if (n >= m / 2)
             resize(2 * m);
-        }
+
         int i;
         for (i = hash(key); keys[i] != null; i = (i + 1) % m) {
             if (keys[i].equals(key)) {
@@ -60,7 +62,7 @@ public class LinearProbingHashST<Key extends Comparable<Key>, Value> implements 
     @Override
     public int size() {
         // TODO Auto-generated method stub
-        return 0;
+        return n;
     }
 
     @Override
