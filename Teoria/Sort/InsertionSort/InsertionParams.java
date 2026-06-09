@@ -8,7 +8,7 @@ public class InsertionParams {
     // ................Pior Caso: n^2 / 2 => O(n^2)
     // Trocas :
     // ................Melhor Caso: 0 => O(1)
-    // ................Pior Caso: n-1 => O(n)
+    // ................Pior Caso: n^2/ 2 => O(n^2)
     // Estável: Sim.
     // Adptativo: Sim.
     // In place: Sim.
@@ -29,7 +29,7 @@ public class InsertionParams {
 
     public static void sort(Comparable[] v, int lo, int hi) {
         for (int i = lo + 1; i <= hi; i++) {
-            for (int j = i; j > 0 && less(v[j], v[j - 1]); j--)
+            for (int j = i; j > lo && less(v[j], v[j - 1]); j--)
                 exch(v, j, j - 1);
         }
     }

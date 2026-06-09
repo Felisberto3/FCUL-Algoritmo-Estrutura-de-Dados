@@ -1,40 +1,52 @@
 package Teoria.Sort.Bubble;
 
-public class Bubble<T extends Comparable<T>> implements Comparable<Bubble<T>> {
-    private T idade;
+import java.util.Arrays;
 
+public class Bubble {
+
+    // Comparacoes :
+    // ................Melhor Caso: n - 1 => O(n)
+    // ................Pior Caso: n^2 / 2 => O(n^2)
+    // Trocas :
+    // ................Melhor Caso: 0 => O(1)
+    // ................Pior Caso: n-1 => O(n)
+    // Estável: Sim.
+    // Adptativo: Sim.
+    // In place: Sim.
     public static void main(String[] args) {
-        int[] a = { 23, 700, 1, -3, 0, 5, 76, 3 };
+        Integer[] a = { 23, 700, 1, -3, 0, 5, 76, 3 };
+        Integer[] v = { 5, 5, 5, 5, 3, 3, 3, 3, 1, 1, 1, 1 };
+
+        sort(v);
         sort(a);
-
-        for (int i : a) {
-            System.out.print(i + " ");
-        }
+        System.out.print("Array Organizado: ");
+        System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(v));
     }
 
-    // Estava treinando como usar o Comparable
-    @Override
-    public int compareTo(Bubble<T> arg0) {
-        return idade.compareTo(arg0.idade);
-    }
-
-    public static void sort(int[] a) {
-        for (int i = a.length - 2; i >= 0; i--) {
-            boolean isExch = false;
-            for (int j = 0; j <= i; j++)
-                if (a[j] > a[j + 1]) {
-                    exch(a, j, j + 1);
-                    isExch = true;
+    public static void sort(Comparable[] v) {
+        for (int i = v.length - 2; i >= 0; i--) {
+            boolean exchanges = false;
+            for (int j = 0; j <= i; j++) {
+                if (less(v[j + 1], v[j])) {
+                    exch(v, j, j + 1);
+                    exchanges = true;
                 }
+            }
 
-            if (!isExch)
-                break;
+            if (!exchanges)
+                return;
         }
     }
 
-    public static void exch(int[] a, int i, int j) {
-        int aux = a[i];
-        a[i] = a[j];
-        a[j] = aux;
+    public static void exch(Comparable[] v, int i, int j) {
+        Comparable aux = v[i];
+        v[i] = v[j];
+        v[j] = aux;
     }
+
+    public static boolean less(Comparable a, Comparable b) {
+        return a.compareTo(b) < 0;
+    }
+
 }

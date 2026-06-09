@@ -8,7 +8,7 @@ public class Insertion {
     // ................Pior Caso: n^2 / 2 => O(n^2)
     // Trocas :
     // ................Melhor Caso: 0 => O(1)
-    // ................Pior Caso: n-1 => O(n)
+    // ................Pior Caso: n^2 /2 => O(n^2)
     // Estável: Sim.
     // Adptativo: Sim.
     // In place: Sim.

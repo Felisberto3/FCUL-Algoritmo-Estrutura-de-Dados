@@ -77,7 +77,7 @@ public class EX8_LinearProbingHashST<Key, Value> {
     }
 
     public void put(Key key, Value value) {
-        if (n >= (3 * m) / 4) {
+        if (n >= m / 2) {
             resize(m * 2);
         }
         int i = hash(key);
@@ -92,4 +92,5 @@ public class EX8_LinearProbingHashST<Key, Value> {
         vals[i] = value;
         n++;
     }
+
 }
