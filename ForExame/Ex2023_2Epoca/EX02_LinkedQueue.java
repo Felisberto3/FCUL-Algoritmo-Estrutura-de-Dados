@@ -54,6 +54,11 @@ public class EX02_LinkedQueue<E> implements Queue<E> {
         size++;
     }
 
+    @Override
+    public int size() {
+        return size;
+    }
+
     /**
      * Verifica se dado elemento esta na fila
      * 
