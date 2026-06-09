@@ -1,31 +1,47 @@
 package Teoria.Sort.Selection;
 
+import java.util.Arrays;
+
+import java.util.Arrays;
+
 public class SelectionSort {
+
+    // Comparacoes : Todos os casos => n^2 / 2 => O(n^2 )
+    // Trocas: Todos os casos => n-1 trocas => O(n )
+    // Estával: Não.
+    // Adptativo: Não.
+    // In place: Sim.
     public static void main(String[] args) {
-        int[] a = { 23, 700, 1, -3, 0, 5, 76, 3 };
+        Integer[] a = { 23, 700, 1, -3, 0, 5, 76, 3 };
+        Integer[] v = { 5, 5, 5, 5, 3, 3, 3, 3, 1, 1, 1, 1 };
+
+        sort(v);
         sort(a);
-
-        for (int i : a) {
-            System.out.print(i + " ");
-        }
+        System.out.print("Array Organizado: ");
+        System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(v));
     }
 
-    public static void sort(int[] a) {
-        for (int i = 0; i < a.length - 2; i++) {
+    public static void sort(Comparable[] v) {
+        for (int i = 0; i < v.length; i++) {
             int min = i;
-            for (int j = min; j < a.length; j++) {
-                if (a[j] < a[min]) {
-                    min = j;
-                }
-            }
 
-            exch(a, i, min);
+            for (int j = i + 1; j < v.length; j++)
+                if (less(v[j], v[min]))
+                    min = j;
+
+            exch(v, i, min);
         }
     }
 
-    public static void exch(int[] a, int min, int j) {
-        int aux = a[min];
-        a[min] = a[j];
-        a[j] = aux;
+    public static boolean less(Comparable a, Comparable b) {
+        return a.compareTo(b) < 0;
     }
+
+    public static void exch(Comparable[] v, int i, int j) {
+        Comparable aux = v[i];
+        v[i] = v[j];
+        v[j] = aux;
+    }
+
 }

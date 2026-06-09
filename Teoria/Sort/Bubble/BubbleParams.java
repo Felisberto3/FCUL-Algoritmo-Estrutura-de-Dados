@@ -1,8 +1,8 @@
-package Teoria.Sort.InsertionSort;
+package Teoria.Sort.Bubble;
 
 import java.util.Arrays;
 
-public class Insertion {
+public class BubbleParams {
     // Comparacoes :
     // ................Melhor Caso: n - 1 => O(n)
     // ................Pior Caso: n^2 / 2 => O(n^2)
@@ -24,15 +24,22 @@ public class Insertion {
     }
 
     public static void sort(Comparable[] v) {
-        for (int i = 1; i < v.length; i++) {
-            for (int j = i; j > 0 && less(v[j], v[j - 1]); j--) {
-                exch(v, j, j - 1);
-            }
-        }
+        sort(v, 0, v.length - 1);
     }
 
-    public static boolean less(Comparable a, Comparable b) {
-        return a.compareTo(b) < 0;
+    public static void sort(Comparable[] v, int lo, int hi) {
+        for (int i = hi - 1; i >= lo; i--) {
+            boolean exchanges = false;
+            for (int j = 0; j <= i; j++) {
+                if (less(v[j + 1], v[j])) {
+                    exch(v, j, j + 1);
+                    exchanges = true;
+                }
+            }
+
+            if (!exchanges)
+                return;
+        }
     }
 
     public static void exch(Comparable[] v, int i, int j) {
@@ -41,4 +48,7 @@ public class Insertion {
         v[j] = aux;
     }
 
+    public static boolean less(Comparable a, Comparable b) {
+        return a.compareTo(b) < 0;
+    }
 }

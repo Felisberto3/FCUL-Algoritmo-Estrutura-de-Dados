@@ -2,7 +2,7 @@ package Teoria.Sort.InsertionSort;
 
 import java.util.Arrays;
 
-public class Insertion {
+public class InsertionOptimizacaoParams {
     // Comparacoes :
     // ................Melhor Caso: n - 1 => O(n)
     // ................Pior Caso: n^2 / 2 => O(n^2)
@@ -24,15 +24,22 @@ public class Insertion {
     }
 
     public static void sort(Comparable[] v) {
-        for (int i = 1; i < v.length; i++) {
-            for (int j = i; j > 0 && less(v[j], v[j - 1]); j--) {
-                exch(v, j, j - 1);
-            }
-        }
+        sort(v, 0, v.length - 1);
     }
 
-    public static boolean less(Comparable a, Comparable b) {
-        return a.compareTo(b) < 0;
+    public static void sort(Comparable[] v, int lo, int hi) {
+        for (int i = lo; i <= hi; i++) {
+            Comparable chave = v[i];
+            int j = i;
+
+            while (j > 0 && less(chave, v[j - 1])) {
+                v[j] = v[j - 1];
+                j--;
+            }
+
+            v[j] = chave;
+
+        }
     }
 
     public static void exch(Comparable[] v, int i, int j) {
@@ -41,4 +48,7 @@ public class Insertion {
         v[j] = aux;
     }
 
+    public static boolean less(Comparable a, Comparable b) {
+        return a.compareTo(b) < 0;
+    }
 }
